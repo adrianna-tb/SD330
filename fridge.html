@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title> Refrigerator Display </title>
+
+	<style>
+		#Display{
+			width: 50%;
+			margin: auto;
+			border: 1px solid black;
+			padding: 20px;
+			padding-top: 8px;
+		}
+		
+		#onOff{
+			width: 80px;
+			height: 80px;
+			border-radius: 40px;
+			line-height: 5px;
+			font-size: 15px;
+			background-color: black;
+			color: darkgray;
+		}
+		
+		#statusOff{
+			color: white;
+		}
+		
+		#onOffContainer, #clockContainer{
+			width: 43.3%;
+			float: left;
+			padding: 20px;
+		}
+		
+		#runningClock{
+			text-align: right;
+		}
+		
+		body{
+			float: clear;
+			font-family: "Verdana";
+		}
+		
+		#screen{
+			background-color: black; 
+			width: 49vw; 
+			height: 45vh;
+		
+		}
+		
+		.screenOptions{
+			padding: 5px;
+			border-radius: 10px;
+			background-color: darkslategray;
+			color: white;
+		}
+		
+		h3{
+			color: white;
+			margin-left: 20px;
+		}
+		
+		input{
+			margin-left: 20px;
+		}
+		
+		#nameChange{
+			margin-left: 20px;
+		}
+		
+	</style>
+
+</head>
+
+<body onload="onload()">
+	
+	<div id="Display"> 
+	
+		<div id="remainsOn">
+			<div id="onOffContainer" class="container">
+				<button id="onOff" onclick="onOff();"><p id="statusOn">ON</p><p id="statusOff">OFF</p></button>
+			</div>
+			
+			<div id="clockContainer" class="container">
+				<h1 id="runningClock">00:00:00</h1>
+			</div>
+			<br style="float:clear;"><br>
+		
+		</div>
+		
+		<br><br>
+		
+		<div id="poweredDisplay">
+		
+			<h2 style="float:clear; margin-top: 10%;" id="fridgeMessage">Welcome, New User</h2>
+			
+			<div id="screenButtons">
+				<button id="temperature" class="screenOptions" onclick="temperature()"> Temperature </button>
+				<button id="shelfView" class="screenOptions" onclick="shelfView()"> Shelf View </button>
+				<button id="netflix" class="screenOptions" onclick="netflix()"> Netflix </button>
+				<button id="browser" class="screenOptions" onclick="browser()"> Browser </button>
+				<button id="settings" class="screenOptions" onclick="settings()"> Settings </button>
+			
+			</div>
+		
+			<br>
+			<div id="screen">
+			</div>
+		</div>
+		<br><br>
+	
+		</div>
+	</div>
+	
+	<br style="float:clear;">
+	
+<hr>
+	<footer> <p style="text-align: right;"><small> &copy; A. Bordonaro 2.29.2024 </small></p>
+	</footer>
+
+	<script>
+	var displayStatus = false;
+	var userName = "New User";
+	
+	function onload(){
+		resetScreen();
+		document.getElementById("poweredDisplay").style.display = "none";	
+	}
+	
+	function onOff(){
+		if(displayStatus==false){
+			displayStatus=true;
+			document.getElementById("statusOn").style.color = "white";
+			document.getElementById("statusOff").style.color = "darkgray";
+			document.getElementById("poweredDisplay").style.display = "block";
+			resetButtons();
+			resetScreen();
+		}else{
+			displayStatus=false;
+			document.getElementById("statusOff").style.color = "white";
+			document.getElementById("statusOn").style.color = "darkgray";
+			document.getElementById("poweredDisplay").style.display = "none";
+		}
+	}
+	
+	function currentTime(){
+		const d = new Date();
+		let cTime = d.toLocaleTimeString();
+		document.getElementById("runningClock").innerHTML = cTime;
+		let t = setTimeout(function(){ currentTime() }, 1000);
+	}
+	currentTime();
+	
+	function resetButtons(){
+		enableButton("temperature");
+		enableButton("shelfView");
+		enableButton("netflix");
+		enableButton("browser");
+		enableButton("settings");
+	}
+	
+	function resetScreen(){
+		document.getElementById("screen").innerHTML = "<div style='width: 49vw; height: 50vh; background-color: black;'></div>";
+		document.getElementById("fridgeMessage").innerHTML = "Welcome, " + userName;
+	}
+	
+	function enableButton(buttonId){
+		document.getElementById(buttonId).style.color = "white";
+		document.getElementById(buttonId).style.backgroundColor = "darkslategray";
+	}
+	
+	function disableButton(buttonId){
+		document.getElementById(buttonId).style.color = "gray";
+		document.getElementById(buttonId).style.backgroundColor = "darkgray";
+	}
+	
+	function shelfView(){
+		resetButtons();
+		disableButton("shelfView");
+		document.getElementById("screen").innerHTML = "<img src='https://grist.org/wp-content/uploads/2015/08/interior-of-refrigerator.jpg' style='width: 49vw; height: 50vh;'>";
+		document.getElementById("fridgeMessage").innerHTML = "Viewing Your Shelves";
+	}
+	
+	function netflix(){
+		resetButtons();
+		disableButton("netflix");
+		document.getElementById("screen").innerHTML = "<img src='https://cordcutting.com/wp-content/uploads/2023/01/Login.jpeg' style='width: 49vw; height: 50vh;'>";
+		document.getElementById("fridgeMessage").innerHTML = "Viewing Netflix";
+	}
+	
+	function browser(){
+		resetButtons();
+		disableButton("browser");
+		document.getElementById("screen").innerHTML = "<img src='https://nira.com/wp-content/uploads/2020/01/Default_Chrome_Homepage-1024x718.png' style='width: 49vw; height: 50vh;'>";
+		document.getElementById("fridgeMessage").innerHTML = "Viewing Browser";
+	}
+	
+	function temperature(){
+		resetButtons();
+		disableButton("temperature");
+		document.getElementById("screen").innerHTML = "<br> <h3>Outside temperature: 55<sup>&deg;F</sup></h3> <br> <h3>Refrigerator temperature: 32<sup>&deg;F</sup> </h3> <br> <h3>Freezer temperature: 0<sup>&deg;F</sup> </h3>";
+		document.getElementById("fridgeMessage").innerHTML = "Viewing Temperature";
+	}
+	
+	function settings(){
+		resetButtons();
+		disableButton("settings");
+		document.getElementById("screen").innerHTML = "<br> <h3>Enter your name</h3> <input id='nameField' type=text/> <button id='nameChange' onclick='submitName()' value='Submit'>Submit</button> <br>";
+		document.getElementById("fridgeMessage").innerHTML = "Viewing Settings";
+	
+	}
+	
+	function submitName(){
+		var newName = document.getElementById("nameField").value;
+		if (newName == ""){
+			newName="New User";
+		}
+		userName = newName;	
+		document.getElementById("screen").innerHTML = "<br> <h3>Thanks, "+userName+"! Restart your refrigerator to save this change</h3>"
+		
+	}
+	</script>
+
+</body>
+
+
+</html>
