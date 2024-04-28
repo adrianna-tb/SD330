@@ -1,0 +1,187 @@
+{
+	"parking-lots":[
+	
+	{"name": "Fontaine",
+		"map": "mapFontaine.jpg",
+		"totalSpaces": "30",
+		"lotType": "Faculty/Staff",
+		"comments": "Northernmost faculty/staff lot available",
+		"status": "Unrestricted",
+		"spaces":[
+			{"ID": "1",
+			"type": "Faculty/Staff",
+			"status": "Available",
+			"handicap": false,
+			"filledTime": null,
+			"reservedTime": null},
+			
+			{"ID": "2",
+			"type": "Faculty/Staff",
+			"status": "Available",
+			"handicap": true,
+			"filledTime": null,
+			"reservedTime": null},
+			
+			{"ID": "3",
+			"type": "Faculty/Staff",
+			"status": "Filled",
+			"handicap": true,
+			"filledTime": "26 April 2024, 08:00 AM EST",
+			"reservedTime": null},
+			
+			{"ID": "4",
+			"type": "Faculty/Staff",
+			"status": "Reserved",
+			"handicap": true,
+			"filledTime": null,
+			"reservedTime": "27 April 2024, 10:00 AM EST"},
+			
+			{"ID": "5",
+			"type": "Faculty/Staff",
+			"status": "Available",
+			"handicap": false,
+			"filledTime": null,
+			"reservedTime": null},
+			
+			{"ID": "6",
+			"type": "Faculty/Staff",
+			"status": "Available",
+			"handicap": false,
+			"filledTime": null,
+			"reservedTime": null},
+			
+			{"ID": "7",
+			"type": "Faculty/Staff",
+			"status": "Filled",
+			"handicap": false,
+			"filledTime": "26 April 2024, 04:00 PM EST",
+			"reservedTime": null},
+			
+			{"ID": "8",
+			"type": "Faculty/Staff",
+			"status": "Reserved",
+			"handicap": false,
+			"filledTime": null,
+			"reservedTime": "25 April 2024, 03:30 PM EST"},
+			
+			{"ID": "9",
+			"type": "Faculty/Staff",
+			"status": "Closed for Hazard",
+			"handicap": false,
+			"filledTime": null,
+			"reservedTime": null},
+			
+			{"ID": "10",
+			"type": "Faculty/Staff",
+			"status": "Available",
+			"handicap": false,
+			"filledTime": null,
+			"reservedTime": null},
+			
+			{"ID": "11",
+			"type": "Faculty/Staff",
+			"status": "Available",
+			"handicap": true,
+			"filledTime": null,
+			"reservedTime": null},
+			
+			{"ID": "12",
+			"type": "Faculty/Staff",
+			"status": "Filled",
+			"handicap": false,
+			"filledTime": "28 April 2024, 09:00 AM EST",
+			"reservedTime": null}
+		
+		]
+	},
+	
+	{"name": "Fulton",
+		"map": "mapFulton.jpg",
+		"totalSpaces": "200",
+		"lotType": "Commuter/Resident",
+		"comments": "Largest student lot available on East campus",
+		"status": "Unrestricted",
+		"spaces":[
+			{"ID": "1",
+			"type": "Resident Student",
+			"status": "Filled",
+			"handicap": true,
+			"filledTime": "1 April 2024, 10:00 AM EST",
+			"reservedTime": null}
+		]
+	},
+	
+	{"name": "Foy",
+		"map": "mapFoy.jpg",
+		"totalSpaces": "50",
+		"lotType": "Faculty/Staff",
+		"comments": "Currently holding overflow from closed Dyson lot",
+		"status": "Unrestricted",
+		"spaces":[
+			{"ID": "1",
+			"type": "Faculty/Staff",
+			"status": "Available",
+			"handicap": false,
+			"filledTime": null,
+			"reservedTime": null}
+		]
+	},
+	
+	{"name": "Dyson",
+		"map": "mapDyson.jpg",
+		"totalSpaces": "0",
+		"lotType": "Mixed Faculty/Student",
+		"comments": "Closed for construction of new Dyson building",
+		"status": "Closed",
+		"spaces":[
+			{"ID": "1",
+			"type": "Faculty/Staff",
+			"status": "Unavailable",
+			"handicap": false,
+			"filledTime": null,
+			"reservedTime": null}
+		]
+	},
+	
+	{"name": "McCann",
+		"map": "mapMcCann.jpg",
+		"totalSpaces": "75",
+		"lotType": "Mixed Faculty/Student",
+		"comments": "Frequently restricted for sports events",
+		"status": "Unrestricted",
+		"spaces":[
+			{"ID": "1",
+			"type": "Faculty/Staff",
+			"status": "Reserved",
+			"handicap": true,
+			"filledTime": null,
+			"reservedTime": "28 April 2024, 06:00 PM EST"}
+		]
+	},
+	
+	{"name": "Midrise",
+		"map": "mapMidrise.jpg",
+		"totalSpaces": "60",
+		"lotType": "Visitor",
+		"comments": "Increased use in the fall and spring for Admissions events",
+		"status": "Restricted",
+		"spaces":[
+			{"ID": "1",
+			"type": "Visitor",
+			"status": "Available",
+			"handicap": true,
+			"filledTime": null,
+			"reservedTime": null}
+		]
+	}
+	
+	
+	
+	
+	
+	]
+	
+	
+	
+	
+}
