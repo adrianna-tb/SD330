@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Lots - Marist Parking</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+
+  <body>
+
+    <header>
+      <a href="parking.html">
+      <h1 id="pagetitle">Marist Parking</h1>
+      <div id="headerLinks">
+          <a class="headerlink" href="parking.html" >Home</a> 
+          <a class="headerlink" href="lots.html" id="currentPageLink">Lots</a> 
+          <a class="headerlink" href="404.html">Log In</a>
+          <a class="headerlink" href="404.html">Account</a>
+          <a class="headerlink" href="404.html">Help</a> 
+          <a class="headerlink" href="404.html">Contact</a> 
+      </div>
+        </a>
+    </header>
+
+    <div id="spacesBreadcrumb" class="breadcrumb">
+      <h3><a class="bcLink" href="parking.html">Home</a>&nbsp; &gt; &nbsp; Lots</h3>
+    </div>
+
+    <div id="lotsBodyContent" class="textcontent">
+      <p id="lotsBodyText">The following parking lots are available to reserve spots in through this app. Click on a lot to be taken to the lot's page, where you can see the spaces available.  </p>
+      <div id="lotcards">
+        
+        </div>
+      </div>
+        <br><br>
+
+    <footer> <p style="text-align: right;"><small> &copy; A. Bordonaro 5.7.2024 </small></p>
+  <script type="module">
+    const response = await fetch("parking.json");
+    const data = await response.json();
+    const obj = JSON.parse(JSON.stringify(data));
+
+    for(let i=0; i<obj.parkinglots.length; i++){
+      var lotName = obj['parkinglots'][i]['name'];
+      var lotMap = obj['parkinglots'][i]['map'];
+      var totalSpaces = obj['parkinglots'][i]['totalSpaces'];
+      var lotType = obj['parkinglots'][i]['lotType'];
+      var comments = obj['parkinglots'][i]['comments'];
+      var spacesAvailable = 0;
+
+      for(let j=0; j<obj['parkinglots'][i]['spaces'].length; j++){
+        if(obj['parkinglots'][i]['spaces'][j]['status'] == "Available"){
+          spacesAvailable++;
+        }
+      }
+
+      var lotCard="<br><a class='cardlink' href='spaces.html" + "?lot=" + lotName +  "'><div class='lotcard'> <div class='cardtext' <h4><b>" + lotName + "</b></h4> <p>Type: "+ lotType+"</p> <p>Total spots: " + totalSpaces+ "</p><p>Spots available now: "+ spacesAvailable+"</p> <p>Note: " +comments+"</p> </div> <div class='cardimage'><img class='lotMap' src='"+ lotMap+ "'/>  </div> </div></a>"
+
+      document.getElementById("lotcards").innerHTML += lotCard;
+
+    }
+    
+  </script>
+</body>
+
+</html>
